@@ -9,7 +9,10 @@ export const resolvers = {
     },
 
     Mutation: {
-        createJob: (_root, {input}) =>  Job.create(input)
+        createJob: (_root, {input}, context) =>  {
+            console.log('[createJob] context : ', context)
+            return Job.create(input)
+        }
     },
 
     Job: {
